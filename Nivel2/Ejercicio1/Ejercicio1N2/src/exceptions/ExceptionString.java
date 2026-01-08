@@ -1,6 +1,6 @@
 package exceptions;
 
-public class ExceptionString {
+public class ExceptionString extends Exception{
     public ExceptionString(String message) {
         super(message);
     }
