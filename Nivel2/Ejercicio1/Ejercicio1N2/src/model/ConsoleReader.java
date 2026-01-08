@@ -80,7 +80,7 @@ public class ConsoleReader {
     }
 
     public static char readChar(String message) {
-        char result = '\0';
+        char result = ' ';
         boolean valid = false;
 
         while (!valid) {
@@ -128,7 +128,7 @@ public class ConsoleReader {
         while (!valid) {
             try {
                 System.out.println(message);
-                input = sc.nextLine().trim().toLowerCase();
+                input = sc.nextLine().trim();
 
                 if (input.equals("s")) {
                     result = true;
