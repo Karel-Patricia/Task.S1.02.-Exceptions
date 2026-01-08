@@ -12,7 +12,7 @@ public class Sale {
         this.products = new ArrayList<Product>();
     }
 
-    public void setProducts(Product products) {
+    public void setProducts(Product product) {
         products.add(product);
     }
 
