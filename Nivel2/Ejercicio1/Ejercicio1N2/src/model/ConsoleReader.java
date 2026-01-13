@@ -76,25 +76,23 @@ public class ConsoleReader {
     }
 
     public static char readChar(String message) {
-        char charP = ' ';
-
         while (true) {
             try {
                 System.out.println(message);
-                String input = sc.next();
+                String input = sc.nextLine();
 
-                if (input.isBlank() || input.length() != 1) {
-                    throw new ExceptionChar("Error de formato. Ingresa un único carácter.");
+                if (input.isBlank() || input.length() != 1 || input.charAt(0) == ' ') {
+                    throw new ExceptionChar("Error de formato. Ingresa un único carácter que no sea espacio.");
                 }
-                sc.nextLine();
+
                 return input.charAt(0);
 
             } catch (ExceptionChar e) {
                 System.out.println(e.getMessage());
-                sc.nextLine();
             }
         }
     }
+
 
 
     public static String readString(String message) {
