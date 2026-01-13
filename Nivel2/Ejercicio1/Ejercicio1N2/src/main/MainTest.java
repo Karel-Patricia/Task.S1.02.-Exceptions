@@ -4,25 +4,26 @@ import model.ConsoleReader;
 
 public class MainTest {
     static void main(String[] args) {
-        byte age = ConsoleReader.readByte("Introduce tu edad:");
-        System.out.println("Edad: " + age);
 
-        int number = ConsoleReader.readInt("Introduce un número entero:");
-        System.out.println("Número entero: " + number);
+        byte byteInput = ConsoleReader.readByte("Introduce un numero dentro del rango tipo byte:");
+        System.out.println("Correcto: El numero " + byteInput + " es de tipo byte\n");
 
-        float price = ConsoleReader.readFloat("Introduce un precio (float):");
-        System.out.println("Precio: " + price);
+        int intInput = ConsoleReader.readInt("Introduce un número entero:");
+        System.out.println("Correcto: El numero " + intInput + " es de tipo entero\n");
 
-        double salary = ConsoleReader.readDouble("Introduce tu salario:");
-        System.out.println("Salario: " + salary);
+        float floatInput = ConsoleReader.readFloat("Introduce un numero de tipo float:");
+        System.out.println("Correcto: El numero " + floatInput + " es de tipo float\n");
 
-        char initial = ConsoleReader.readChar("Introduce tu inicial:");
-        System.out.println("Inicial: " + initial);
+        double doubleInput = ConsoleReader.readDouble("Introduce un numero de tipo double:");
+        System.out.println("Correcto: El numero " + doubleInput + " es de tipo double\n");
 
-        String name = ConsoleReader.readString("Introduce tu nombre:");
-        System.out.println("Nombre: " + name);
+        char charInput = ConsoleReader.readChar("Introduce un caracter:");
+        System.out.println("Correcto: El caracter " +  charInput + " es válido.");
 
-        boolean confirmed = ConsoleReader.readYesNo("¿Deseas continuar? (s/n)");
+        String stringInput = ConsoleReader.readString("Introduce una palabra:");
+        System.out.println("La palabra: " + stringInput + " es una cadena valida.");
+
+        boolean confirmed = ConsoleReader.readYesNo("¿Deseas continuar? (s/n).");
         System.out.println("Confirmación: " + confirmed);
 
     }

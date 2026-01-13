@@ -9,143 +9,132 @@ import java.util.Scanner;
 
 public class ConsoleReader {
 
-    private static final Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     public static byte readByte(String message) {
-        byte value = 0;
-        boolean valid = false;
+        byte byteNumber = 0;
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
-                value = sc.nextByte();
-                valid = true;
+                byteNumber = sc.nextByte();
+                sc.nextLine();
+                return byteNumber;
             } catch (InputMismatchException e) {
                 System.out.println("Error de formato. Vuelve a intentarlo");
                 sc.nextLine();
             }
         }
-        return value;
     }
 
     public static int readInt(String message) {
-        int value = 0;
-        boolean valid = false;
+        int intNumber = 0;
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
-                value = sc.nextInt();
-                valid = true;
+                intNumber = sc.nextInt();
+                sc.nextLine();
+                return intNumber;
             } catch (InputMismatchException e) {
                 System.out.println("Error de formato. Vuelve a intentarlo");
                 sc.nextLine();
             }
         }
-        return value;
     }
 
     public static float readFloat(String message) {
-        float value = 0;
-        boolean valid = false;
+        float floatNumber = 0f;
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
-                value = sc.nextFloat();
-                valid = true;
+                floatNumber = sc.nextFloat();
+                sc.nextLine();
+                return floatNumber;
             } catch (InputMismatchException e) {
                 System.out.println("Error de formato. Vuelve a intentarlo");
                 sc.nextLine();
             }
         }
-        return value;
     }
 
     public static double readDouble(String message) {
-        double value = 0;
-        boolean valid = false;
+        double doubleNumber = 0;
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
-                value = sc.nextDouble();
-                valid = true;
+                doubleNumber = sc.nextDouble();
+                sc.nextLine();
+                return doubleNumber;
             } catch (InputMismatchException e) {
                 System.out.println("Error de formato. Vuelve a intentarlo");
                 sc.nextLine();
             }
         }
-        return value;
     }
 
     public static char readChar(String message) {
-        char result = ' ';
-        boolean valid = false;
+        char charP = ' ';
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
-                String input = sc.nextLine();
+                String input = sc.next();
 
-                if (input.length() != 1) {
-                    throw new ExceptionChar("Debe introducir un único carácter");
+                if (input.isBlank() || input.length() != 1) {
+                    throw new ExceptionChar("Error de formato. Ingresa un único carácter.");
                 }
-                result = input.charAt(0);
-                valid = true;
+                sc.nextLine();
+                return input.charAt(0);
+
             } catch (ExceptionChar e) {
                 System.out.println(e.getMessage());
+                sc.nextLine();
             }
         }
-        return result;
     }
 
-    public static String readString(String message) {
-        String input = "";
-        boolean valid = false;
 
-        while (!valid) {
+    public static String readString(String message) {
+        String stringWord = "";
+
+        while (true) {
             try {
                 System.out.println(message);
-                input = sc.nextLine();
+                stringWord = sc.nextLine();
 
-                if (input.isBlank()) {
-                    throw new ExceptionString("La cadena no puede estar vacia");
+                if (stringWord.isBlank()) {
+                    throw new ExceptionString("Error de formato. La cadena no puede estar vacia");
                 }
-                valid = true;
+                return stringWord;
             } catch (ExceptionString e) {
                 System.out.println(e.getMessage());
             }
         }
-        return input;
     }
 
     public static boolean readYesNo(String message) {
         String input = "";
-        boolean valid = false;
-        boolean result = false;
 
-        while (!valid) {
+        while (true) {
             try {
                 System.out.println(message);
                 input = sc.nextLine().trim();
 
                 if (input.equals("s")) {
-                    result = true;
-                    valid = true;
+                    return true;
                 } else if (input.equals("n")) {
-                    result = false;
-                    valid = true;
+                    return true;
                 } else {
-                    throw new ExceptionBoolean("Respuesta inválida. Introduce 's' o 'n'.");
+                    throw new ExceptionBoolean("Error de formato. Vuelve a intentarlo.");
                 }
 
             } catch (ExceptionBoolean e) {
                 System.out.println(e.getMessage());
             }
         }
-
-        return result;
     }
 
 }
