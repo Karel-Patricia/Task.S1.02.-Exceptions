@@ -1,7 +1,6 @@
 package model;
 
 import exceptions.EmptySaleException;
-
 import java.util.ArrayList;
 
 public class Sale {
@@ -24,7 +23,7 @@ public class Sale {
         totalPrice = 0;
 
         if (products.isEmpty()){
-            throw new EmptySaleException("Para hacer una venta primero debes añadir productos");
+            throw new EmptySaleException();
         }
         for (Product product : products){
             totalPrice += product.getPrice();
